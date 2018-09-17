@@ -17,7 +17,7 @@ class GameCell: UITableViewCell {
         selectionStyle = .none
         
         gameImage.layer.cornerRadius = 10
-        gameLabel.layer.shadowOpacity = 0.8
+        gameLabel.layer.shadowOpacity = 0.9
         gameLabel.layer.shadowColor = UIColor.darkGray.cgColor
         
         gameLabel.text = game.gameName
@@ -30,9 +30,13 @@ class GameCell: UITableViewCell {
         }
         
         DispatchQueue.global().async {
-            let data = try? Data(contentsOf: imageURL)
+            
+            guard let data = try? Data(contentsOf: imageURL) else {
+                return
+            }
+            
             DispatchQueue.main.async {
-                self.gameImage.image = UIImage(data: data!)
+                self.gameImage.image = UIImage(data: data)
             }
         }
         

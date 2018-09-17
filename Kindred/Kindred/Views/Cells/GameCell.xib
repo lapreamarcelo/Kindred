@@ -26,21 +26,21 @@
                             <constraint firstAttribute="height" constant="150" id="gfl-Bb-A9V"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tCX-w1-wpf">
-                        <rect key="frame" x="24" y="18" width="273" height="134"/>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tCX-w1-wpf">
+                        <rect key="frame" x="24" y="19" width="159" height="33.5"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="H7R-N8-0Gj" secondAttribute="trailing" constant="8" id="24V-uw-lgs"/>
-                    <constraint firstItem="tCX-w1-wpf" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="6X9-vv-t6F"/>
-                    <constraint firstItem="tCX-w1-wpf" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="CUP-Ui-3fq"/>
+                    <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="tCX-w1-wpf" secondAttribute="bottom" constant="10" id="5VC-jR-0sc"/>
+                    <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="tCX-w1-wpf" secondAttribute="trailing" constant="10" id="H1K-hs-ZzL"/>
+                    <constraint firstItem="tCX-w1-wpf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="XE3-MX-Nb9"/>
                     <constraint firstItem="H7R-N8-0Gj" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ZC2-Fe-hpy"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="tCX-w1-wpf" secondAttribute="bottom" constant="8" id="b5j-4N-xbG"/>
+                    <constraint firstItem="tCX-w1-wpf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="ZN6-71-29J"/>
                     <constraint firstItem="H7R-N8-0Gj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="myR-Of-cgq"/>
-                    <constraint firstItem="tCX-w1-wpf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="vE9-do-ab0"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
