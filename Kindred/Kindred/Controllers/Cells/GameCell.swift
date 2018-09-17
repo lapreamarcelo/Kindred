@@ -14,6 +14,8 @@ class GameCell: UITableViewCell {
     @IBOutlet weak var gameLabel: UILabel!
     
     func setup(game: Game) {
+        selectionStyle = .none
+        
         gameImage.layer.cornerRadius = 10
         gameLabel.layer.shadowOpacity = 0.8
         gameLabel.layer.shadowColor = UIColor.darkGray.cgColor
@@ -23,11 +25,17 @@ class GameCell: UITableViewCell {
     }
     
     private func setupImage(gameImageURL: String?) {
-        guard let imageURL = gameImageURL else {
+        guard let gameImageURL = gameImageURL, let imageURL = URL(string: gameImageURL) else {
             return
         }
         
-        print(imageURL)
+        DispatchQueue.global().async {
+            let data = try? Data(contentsOf: imageURL)
+            DispatchQueue.main.async {
+                self.gameImage.image = UIImage(data: data!)
+            }
+        }
+        
     }
     
 }

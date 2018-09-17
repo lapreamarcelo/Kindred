@@ -31,7 +31,10 @@ class GamesViewController: UIViewController {
     }
     
     private func fetchGames() {
-        
+        DataSource().getFakeGames { (games) in
+            self.games = games
+            self.tableView.reloadData()
+        }
     }
 
 }
@@ -47,10 +50,15 @@ extension GamesViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        cell.setup()
+        let game = games[indexPath.row]
+        
+        cell.setup(game: game)
         
         return cell
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 170.0
+    }
 }
 
