@@ -31,7 +31,7 @@ class GamesViewController: UIViewController {
     }
     
     private func fetchGames() {
-        DataSource().getFakeGames { (games) in
+        DataSource().getGames { (games) in
             self.games = games
             self.tableView.reloadData()
         }

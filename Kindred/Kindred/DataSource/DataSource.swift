@@ -14,7 +14,8 @@ class DataSource {
     let urlString = URL(string: "https://api.unibet.com/game-library-rest-api/getGamesByMarketAndDevice.json?jurisdiction=UK&brand=unibet&deviceGroup=mobilephone&locale=en_GB&currency=GBP&categories=casino,softgames&clientId=casinoapp")
     
     func getGames(completion: @escaping ([Game]) ->()) {
-        
+        var games: [Game] = []
+        completion(games)
     }
     
     func getFakeGames(completion: @escaping ([Game]) ->()) {
