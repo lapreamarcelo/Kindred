@@ -8,6 +8,14 @@
 
 import Foundation
 
+class Results: Codable {
+    let games: [String: Game]
+    
+    init(games: [String: Game]) {
+        self.games = games
+    }
+}
+
 class Game {
     var gameId: String?
     var gameName: String?

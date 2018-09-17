@@ -11,11 +11,37 @@ import Foundation
 
 class DataSource {
     
-    let urlString = URL(string: "https://api.unibet.com/game-library-rest-api/getGamesByMarketAndDevice.json?jurisdiction=UK&brand=unibet&deviceGroup=mobilephone&locale=en_GB&currency=GBP&categories=casino,softgames&clientId=casinoapp")
+    let url = URL(string: "https://api.unibet.com/game-library-rest-api/getGamesByMarketAndDevice.json?jurisdiction=UK&brand=unibet&deviceGroup=mobilephone&locale=en_GB&currency=GBP&categories=casino,softgames&clientId=casinoapp")
     
     func getGames(completion: @escaping ([Game]) ->()) {
         var games: [Game] = []
-        completion(games)
+        
+        guard let url = url else {
+            completion(games)
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            guard let dataResponse = data, error == nil else {
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                let model = try decoder.decode(Results.self, from: dataResponse)
+                
+                games = model.games.map({ (results) in
+                    return results.value
+                })
+
+                completion(games)
+                
+            } catch let parsingError {
+                print(parsingError)
+            }
+        }
+        
+        task.resume()
     }
     
     func getFakeGames(completion: @escaping ([Game]) ->()) {

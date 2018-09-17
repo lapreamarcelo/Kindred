@@ -32,8 +32,12 @@ class GamesViewController: UIViewController {
     
     private func fetchGames() {
         DataSource().getGames { (games) in
-            self.games = games
-            self.tableView.reloadData()
+
+            DispatchQueue.main.async {
+                self.games = games
+                self.tableView.reloadData()
+            }
+            
         }
     }
 
